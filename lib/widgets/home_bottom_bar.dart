@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/home_screen.dart'; // Assurez-vous que le chemin vers la page d'accueil est correct.
 
 class HomeBottomBar extends StatelessWidget {
   @override
@@ -19,10 +20,19 @@ class HomeBottomBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
-            Icons.home,
-            color: Color(0xFFE57734),
-            size: 35,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+                    (route) => false,
+              );
+            },
+            child: Icon(
+              Icons.home,
+              color: Color(0xFFE57734),
+              size: 35,
+            ),
           ),
           Icon(
             Icons.favorite_outlined,
